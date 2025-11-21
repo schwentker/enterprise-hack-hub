@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { StatsBar } from "@/components/StatsBar";
 import { AboutSection } from "@/components/AboutSection";
 import { ChallengeTracksSection } from "@/components/ChallengeTracksSection";
+import { ScheduleSection } from "@/components/ScheduleSection";
 
 const Index = () => {
   return (
@@ -12,13 +13,7 @@ const Index = () => {
       <StatsBar />
       <AboutSection />
       <ChallengeTracksSection />
-      
-      <section id="schedule" className="min-h-screen flex items-center justify-center">
-        <div className="text-center text-muted-foreground">
-          <h2 className="text-3xl font-bold mb-4">Schedule Section</h2>
-          <p>Coming soon...</p>
-        </div>
-      </section>
+      <ScheduleSection />
       
       <section id="prizes" className="min-h-screen flex items-center justify-center bg-card">
         <div className="text-center text-muted-foreground">
