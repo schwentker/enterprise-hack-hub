@@ -6,6 +6,7 @@ import { ChallengeTracksSection } from "@/components/ChallengeTracksSection";
 import { ScheduleSection } from "@/components/ScheduleSection";
 import { PrizesSection } from "@/components/PrizesSection";
 import { PastInnovationsSection } from "@/components/PastInnovationsSection";
+import { RegistrationSection } from "@/components/RegistrationSection";
 
 const Index = () => {
   return (
@@ -18,13 +19,7 @@ const Index = () => {
       <ScheduleSection />
       <PrizesSection />
       <PastInnovationsSection />
-      
-      <section id="register" className="min-h-screen flex items-center justify-center">
-        <div className="text-center text-muted-foreground">
-          <h2 className="text-3xl font-bold mb-4">Register Section</h2>
-          <p>Coming soon...</p>
-        </div>
-      </section>
+      <RegistrationSection />
     </div>
   );
 };
