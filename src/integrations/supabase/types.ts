@@ -44,6 +44,35 @@ export type Database = {
         }
         Relationships: []
       }
+      awards: {
+        Row: {
+          award_type: string
+          awarded_at: string
+          id: string
+          submission_id: string
+        }
+        Insert: {
+          award_type: string
+          awarded_at?: string
+          id?: string
+          submission_id: string
+        }
+        Update: {
+          award_type?: string
+          awarded_at?: string
+          id?: string
+          submission_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "awards_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: false
+            referencedRelation: "submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       event_settings: {
         Row: {
           current_phase: string
@@ -79,6 +108,35 @@ export type Database = {
           updated_by?: string | null
         }
         Relationships: []
+      }
+      judge_assignments: {
+        Row: {
+          assigned_at: string
+          id: string
+          judge_id: string
+          submission_id: string
+        }
+        Insert: {
+          assigned_at?: string
+          id?: string
+          judge_id: string
+          submission_id: string
+        }
+        Update: {
+          assigned_at?: string
+          id?: string
+          judge_id?: string
+          submission_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "judge_assignments_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: false
+            referencedRelation: "submissions"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       registrations: {
         Row: {
@@ -127,6 +185,103 @@ export type Database = {
           track?: string
         }
         Relationships: []
+      }
+      scores: {
+        Row: {
+          comments: string | null
+          id: string
+          impact_score: number
+          innovation_score: number
+          judge_id: string
+          platform_score: number
+          quality_score: number
+          scored_at: string
+          submission_id: string
+        }
+        Insert: {
+          comments?: string | null
+          id?: string
+          impact_score: number
+          innovation_score: number
+          judge_id: string
+          platform_score: number
+          quality_score: number
+          scored_at?: string
+          submission_id: string
+        }
+        Update: {
+          comments?: string | null
+          id?: string
+          impact_score?: number
+          innovation_score?: number
+          judge_id?: string
+          platform_score?: number
+          quality_score?: number
+          scored_at?: string
+          submission_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "scores_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: false
+            referencedRelation: "submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      submissions: {
+        Row: {
+          created_at: string
+          demo_link: string | null
+          description: string | null
+          id: string
+          project_name: string
+          repo_link: string | null
+          slides_link: string | null
+          status: string
+          submitted_at: string
+          team_id: string
+          updated_at: string
+          video_link: string | null
+        }
+        Insert: {
+          created_at?: string
+          demo_link?: string | null
+          description?: string | null
+          id?: string
+          project_name: string
+          repo_link?: string | null
+          slides_link?: string | null
+          status?: string
+          submitted_at?: string
+          team_id: string
+          updated_at?: string
+          video_link?: string | null
+        }
+        Update: {
+          created_at?: string
+          demo_link?: string | null
+          description?: string | null
+          id?: string
+          project_name?: string
+          repo_link?: string | null
+          slides_link?: string | null
+          status?: string
+          submitted_at?: string
+          team_id?: string
+          updated_at?: string
+          video_link?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "submissions_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "teams"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       team_members: {
         Row: {
@@ -295,6 +450,10 @@ export type Database = {
     }
     Functions: {
       generate_registration_number: { Args: never; Returns: number }
+      get_submission_average_score: {
+        Args: { submission_uuid: string }
+        Returns: number
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
