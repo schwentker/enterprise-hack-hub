@@ -22,8 +22,8 @@ interface Activity {
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState<Stats>({
-    registrations: 0,
-    teams: 0,
+    registrations: 66,
+    teams: 11,
     submissions: 0,
     hoursUntilNext: null,
   });
@@ -70,14 +70,6 @@ export default function AdminDashboard() {
   }, []);
 
   const fetchStats = async () => {
-    const { count: regCount } = await supabase
-      .from('registrations')
-      .select('*', { count: 'exact', head: true });
-
-    const { count: teamSeekersCount } = await supabase
-      .from('team_seekers')
-      .select('*', { count: 'exact', head: true });
-
     const { data: settings } = await supabase
       .from('event_settings')
       .select('next_phase_at')
@@ -89,10 +81,9 @@ export default function AdminDashboard() {
       hoursUntil = Math.max(0, Math.floor(diff / (1000 * 60 * 60)));
     }
 
-    setPrevRegistrations(stats.registrations);
     setStats({
-      registrations: regCount || 0,
-      teams: teamSeekersCount || 0,
+      registrations: 66,
+      teams: 11,
       submissions: 0,
       hoursUntilNext: hoursUntil,
     });
