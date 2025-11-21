@@ -6,6 +6,7 @@ import { ChallengeTracksSection } from "@/components/ChallengeTracksSection";
 import { ScheduleSection } from "@/components/ScheduleSection";
 import { PrizesSection } from "@/components/PrizesSection";
 import { PastInnovationsSection } from "@/components/PastInnovationsSection";
+import { FAQSection } from "@/components/FAQSection";
 import { RegistrationSection } from "@/components/RegistrationSection";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <ScheduleSection />
       <PrizesSection />
       <PastInnovationsSection />
+      <FAQSection />
       <RegistrationSection />
     </div>
   );
