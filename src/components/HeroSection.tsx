@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { CountdownTimer } from "./CountdownTimer";
+import { DynamicCountdown } from "@/components/DynamicCountdown";
+import { LiveRegistrationCounter } from "@/components/LiveRegistrationCounter";
+import { TeamMatchingModal } from "@/components/TeamMatchingModal";
 import { ArrowRight, Calendar } from "lucide-react";
 
 export const HeroSection = () => {
-  // February 1, 2026, 9 AM PST (UTC-8)
-  const eventDate = new Date("2026-02-01T09:00:00-08:00");
-
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -40,13 +39,14 @@ export const HeroSection = () => {
             </p>
           </div>
 
-          {/* Countdown Timer */}
-          <div className="animate-scale-in" style={{ animationDelay: "0.2s" }}>
-            <div className="inline-flex items-center gap-2 text-sm text-muted-foreground mb-6">
+          {/* Live Stats & Countdown */}
+          <div className="animate-scale-in space-y-6" style={{ animationDelay: "0.2s" }}>
+            <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
-              <span>February 1, 2026 • 9:00 AM PST</span>
+              <span>March 1-3, 2025 • Remote + In-Person</span>
             </div>
-            <CountdownTimer targetDate={eventDate} />
+            <LiveRegistrationCounter maxSpots={150} />
+            <DynamicCountdown />
           </div>
 
           {/* CTA Buttons */}
@@ -59,6 +59,7 @@ export const HeroSection = () => {
               Register Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
+            <TeamMatchingModal />
             <Button
               size="lg"
               variant="outline"

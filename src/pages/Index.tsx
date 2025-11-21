@@ -11,6 +11,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { RegistrationSection } from "@/components/RegistrationSection";
 import { Footer } from "@/components/Footer";
 import { FloatingRegisterButton, ScrollToTopButton } from "@/components/FloatingButtons";
+import { SocialProofTicker } from "@/components/SocialProofTicker";
 import { useScrollAnimation, useParallax } from "@/hooks/useAnimations";
 
 const Index = () => {
@@ -48,6 +49,7 @@ const Index = () => {
       <Footer />
       <FloatingRegisterButton />
       <ScrollToTopButton />
+      <SocialProofTicker />
     </div>
   );
 };

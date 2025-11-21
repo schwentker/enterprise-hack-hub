@@ -62,6 +62,42 @@ export type Database = {
         }
         Relationships: []
       }
+      team_seekers: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          looking_for_team: boolean
+          role: string
+          skills_needed: string[]
+          skills_offered: string[]
+          track: string
+          user_name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          looking_for_team?: boolean
+          role: string
+          skills_needed?: string[]
+          skills_offered?: string[]
+          track: string
+          user_name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          looking_for_team?: boolean
+          role?: string
+          skills_needed?: string[]
+          skills_offered?: string[]
+          track?: string
+          user_name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
