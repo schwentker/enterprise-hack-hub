@@ -128,6 +128,77 @@ export type Database = {
         }
         Relationships: []
       }
+      team_members: {
+        Row: {
+          id: string
+          joined_at: string
+          registration_id: string
+          role: string | null
+          team_id: string
+        }
+        Insert: {
+          id?: string
+          joined_at?: string
+          registration_id: string
+          role?: string | null
+          team_id: string
+        }
+        Update: {
+          id?: string
+          joined_at?: string
+          registration_id?: string
+          role?: string | null
+          team_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "team_members_registration_id_fkey"
+            columns: ["registration_id"]
+            isOneToOne: true
+            referencedRelation: "registrations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "team_members_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      team_notes: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          note: string
+          team_id: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          note: string
+          team_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          note?: string
+          team_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "team_notes_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       team_seekers: {
         Row: {
           created_at: string
@@ -161,6 +232,39 @@ export type Database = {
           skills_offered?: string[]
           track?: string
           user_name?: string
+        }
+        Relationships: []
+      }
+      teams: {
+        Row: {
+          challenge: string | null
+          created_at: string
+          id: string
+          max_members: number
+          name: string
+          status: string
+          track: string
+          updated_at: string
+        }
+        Insert: {
+          challenge?: string | null
+          created_at?: string
+          id?: string
+          max_members?: number
+          name: string
+          status?: string
+          track: string
+          updated_at?: string
+        }
+        Update: {
+          challenge?: string | null
+          created_at?: string
+          id?: string
+          max_members?: number
+          name?: string
+          status?: string
+          track?: string
+          updated_at?: string
         }
         Relationships: []
       }
