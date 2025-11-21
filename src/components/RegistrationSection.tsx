@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,8 +15,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Sparkles, Box, Zap, Clock, Twitter, Linkedin, Facebook } from "lucide-react";
-import ReactCanvasConfetti from "react-canvas-confetti";
-import type { CreateTypes } from "canvas-confetti";
+import confetti from "canvas-confetti";
 
 type FormData = {
   full_name: string;
@@ -81,7 +80,6 @@ export const RegistrationSection = () => {
   const [registrationCount, setRegistrationCount] = useState(0);
   const [registrationNumber, setRegistrationNumber] = useState<number | null>(null);
   const { toast } = useToast();
-  const confettiRef = useRef<CreateTypes | null>(null);
 
   // Fetch initial registration count
   useEffect(() => {
@@ -124,13 +122,11 @@ export const RegistrationSection = () => {
   }, []);
 
   const fireConfetti = () => {
-    if (confettiRef.current) {
-      confettiRef.current({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-    }
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -201,20 +197,6 @@ export const RegistrationSection = () => {
   if (registrationNumber !== null) {
     return (
       <section id="register" className="py-24 px-4 bg-background">
-        <ReactCanvasConfetti
-          refConfetti={(instance) => {
-            confettiRef.current = instance;
-          }}
-          style={{
-            position: "fixed",
-            pointerEvents: "none",
-            width: "100%",
-            height: "100%",
-            top: 0,
-            left: 0,
-            zIndex: 1000,
-          }}
-        />
         <div className="container max-w-2xl mx-auto text-center">
           <div className="mb-8">
             <div className="text-6xl mb-4">🎉</div>
