@@ -5,7 +5,9 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { LogOut, ExternalLink } from "lucide-react";
+import { LogOut, ExternalLink, HelpCircle, Search } from "lucide-react";
+import { NotificationCenter } from "./NotificationCenter";
+import { ThemeToggle } from "./ThemeToggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -93,17 +95,40 @@ export function AdminTopBar() {
         </div>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
         {settings?.current_phase && (
-          <span className="text-sm text-muted-foreground hidden sm:inline">
+          <span className="text-sm text-muted-foreground hidden md:inline">
             {settings.current_phase}
           </span>
         )}
 
-        <Button variant="ghost" size="sm" asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          title="Search (Cmd/Ctrl+K)"
+        >
+          <Search className="h-5 w-5" />
+        </Button>
+
+        <NotificationCenter />
+
+        <ThemeToggle />
+
+        <Button variant="ghost" size="icon" asChild>
+          <a 
+            href="https://docs.lovable.dev" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            title="Help & Documentation"
+          >
+            <HelpCircle className="h-5 w-5" />
+          </a>
+        </Button>
+
+        <Button variant="ghost" size="sm" asChild className="hidden sm:flex">
           <a href="/" target="_blank" rel="noopener noreferrer">
             <ExternalLink className="h-4 w-4 mr-2" />
-            <span className="hidden sm:inline">Public Site</span>
+            Public Site
           </a>
         </Button>
 
