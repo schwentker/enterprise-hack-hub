@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { StatsBar } from "@/components/StatsBar";
+import { AboutSection } from "@/components/AboutSection";
 
 const Index = () => {
   return (
@@ -8,14 +9,9 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <StatsBar />
+      <AboutSection />
       
       {/* Placeholder sections for future prompts */}
-      <section id="about" className="min-h-screen flex items-center justify-center">
-        <div className="text-center text-muted-foreground">
-          <h2 className="text-3xl font-bold mb-4">About Section</h2>
-          <p>Coming in next prompt...</p>
-        </div>
-      </section>
       
       <section id="challenges" className="min-h-screen flex items-center justify-center bg-card">
         <div className="text-center text-muted-foreground">
