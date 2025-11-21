@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/admin/Login";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/Dashboard";
+import AdminRegistrations from "./pages/admin/Registrations";
 
 const queryClient = new QueryClient();
 
@@ -29,7 +30,7 @@ const App = () => (
               </ProtectedRoute>
             }>
               <Route index element={<AdminDashboard />} />
-              <Route path="registrations" element={<div>Registrations (Coming Soon)</div>} />
+              <Route path="registrations" element={<AdminRegistrations />} />
               <Route path="teams" element={<div>Teams (Coming Soon)</div>} />
               <Route path="submissions" element={<div>Submissions (Coming Soon)</div>} />
               <Route path="judging" element={<div>Judging (Coming Soon)</div>} />
