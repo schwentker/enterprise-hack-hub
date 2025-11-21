@@ -73,39 +73,120 @@ export type Database = {
           },
         ]
       }
+      challenges: {
+        Row: {
+          created_at: string
+          description: string | null
+          display_order: number
+          id: string
+          name: string
+          prize_amount: number | null
+          recommended_track: string | null
+          sponsor: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          id?: string
+          name: string
+          prize_amount?: number | null
+          recommended_track?: string | null
+          sponsor?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          id?: string
+          name?: string
+          prize_amount?: number | null
+          recommended_track?: string | null
+          sponsor?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       event_settings: {
         Row: {
+          auto_advance_phases: boolean | null
           current_phase: string
+          event_end_date: string | null
           event_name: string
+          event_start_date: string | null
           event_status: string
           id: string
           next_phase_at: string | null
+          registration_deadline: string | null
           registration_limit: number | null
           settings: Json | null
+          submission_deadline: string | null
           updated_at: string
           updated_by: string | null
         }
         Insert: {
+          auto_advance_phases?: boolean | null
           current_phase?: string
+          event_end_date?: string | null
           event_name?: string
+          event_start_date?: string | null
           event_status?: string
           id?: string
           next_phase_at?: string | null
+          registration_deadline?: string | null
           registration_limit?: number | null
           settings?: Json | null
+          submission_deadline?: string | null
           updated_at?: string
           updated_by?: string | null
         }
         Update: {
+          auto_advance_phases?: boolean | null
           current_phase?: string
+          event_end_date?: string | null
           event_name?: string
+          event_start_date?: string | null
           event_status?: string
           id?: string
           next_phase_at?: string | null
+          registration_deadline?: string | null
           registration_limit?: number | null
           settings?: Json | null
+          submission_deadline?: string | null
           updated_at?: string
           updated_by?: string | null
+        }
+        Relationships: []
+      }
+      integrations: {
+        Row: {
+          created_at: string
+          enabled: boolean
+          id: string
+          integration_type: string
+          settings: Json | null
+          updated_at: string
+          webhook_url: string | null
+        }
+        Insert: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          integration_type: string
+          settings?: Json | null
+          updated_at?: string
+          webhook_url?: string | null
+        }
+        Update: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          integration_type?: string
+          settings?: Json | null
+          updated_at?: string
+          webhook_url?: string | null
         }
         Relationships: []
       }
@@ -137,6 +218,60 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      notification_templates: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          subject: string
+          template_type: string
+          updated_at: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: string
+          subject: string
+          template_type: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          subject?: string
+          template_type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      prizes: {
+        Row: {
+          amount: number
+          created_at: string
+          description: string | null
+          id: string
+          prize_type: string
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          prize_type: string
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          prize_type?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       registrations: {
         Row: {
