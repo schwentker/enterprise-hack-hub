@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { StatsBar } from "@/components/StatsBar";
 import { AboutSection } from "@/components/AboutSection";
+import { ChallengeTracksSection } from "@/components/ChallengeTracksSection";
 
 const Index = () => {
   return (
@@ -10,15 +11,7 @@ const Index = () => {
       <HeroSection />
       <StatsBar />
       <AboutSection />
-      
-      {/* Placeholder sections for future prompts */}
-      
-      <section id="challenges" className="min-h-screen flex items-center justify-center bg-card">
-        <div className="text-center text-muted-foreground">
-          <h2 className="text-3xl font-bold mb-4">Challenges Section</h2>
-          <p>Coming soon...</p>
-        </div>
-      </section>
+      <ChallengeTracksSection />
       
       <section id="schedule" className="min-h-screen flex items-center justify-center">
         <div className="text-center text-muted-foreground">
