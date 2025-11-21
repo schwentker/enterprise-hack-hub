@@ -40,7 +40,7 @@ export type Database = {
           full_name: string
           how_heard: string
           id?: string
-          registration_number: number
+          registration_number?: number
           role: string
           team_status: string
           track: string
