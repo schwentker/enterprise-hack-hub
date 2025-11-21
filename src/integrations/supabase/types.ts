@@ -14,13 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      registrations: {
+        Row: {
+          agreed_to_code_of_conduct: boolean
+          challenges: string[]
+          company: string | null
+          created_at: string
+          email: string
+          experience_level: string
+          full_name: string
+          how_heard: string
+          id: string
+          registration_number: number
+          role: string
+          team_status: string
+          track: string
+        }
+        Insert: {
+          agreed_to_code_of_conduct?: boolean
+          challenges: string[]
+          company?: string | null
+          created_at?: string
+          email: string
+          experience_level: string
+          full_name: string
+          how_heard: string
+          id?: string
+          registration_number: number
+          role: string
+          team_status: string
+          track: string
+        }
+        Update: {
+          agreed_to_code_of_conduct?: boolean
+          challenges?: string[]
+          company?: string | null
+          created_at?: string
+          email?: string
+          experience_level?: string
+          full_name?: string
+          how_heard?: string
+          id?: string
+          registration_number?: number
+          role?: string
+          team_status?: string
+          track?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_registration_number: { Args: never; Returns: number }
     }
     Enums: {
       [_ in never]: never
