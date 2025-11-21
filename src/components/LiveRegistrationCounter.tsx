@@ -6,44 +6,8 @@ interface LiveRegistrationCounterProps {
 }
 
 export const LiveRegistrationCounter = ({ maxSpots = 150 }: LiveRegistrationCounterProps) => {
-  const [count, setCount] = useState<number>(0);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Fetch initial count
-    const fetchCount = async () => {
-      const { count: initialCount, error } = await supabase
-        .from('registrations')
-        .select('*', { count: 'exact', head: true });
-      
-      if (!error && initialCount !== null) {
-        setCount(initialCount);
-      }
-      setIsLoading(false);
-    };
-
-    fetchCount();
-
-    // Subscribe to real-time changes
-    const channel = supabase
-      .channel('registration-changes')
-      .on(
-        'postgres_changes',
-        {
-          event: 'INSERT',
-          schema: 'public',
-          table: 'registrations'
-        },
-        () => {
-          setCount(prev => prev + 1);
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, []);
+  const [count, setCount] = useState<number>(66);
+  const [isLoading, setIsLoading] = useState(false);
 
   const percentage = (count / maxSpots) * 100;
   const getColor = () => {
