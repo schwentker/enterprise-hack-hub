@@ -13,6 +13,7 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import AdminRegistrations from "./pages/admin/Registrations";
 import AdminTeams from "./pages/admin/Teams";
 import AdminSubmissions from "./pages/admin/Submissions";
+import AdminAnalytics from "./pages/admin/Analytics";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,7 @@ const App = () => (
               <Route path="teams" element={<AdminTeams />} />
               <Route path="submissions" element={<AdminSubmissions />} />
               <Route path="judging" element={<AdminSubmissions />} />
-              <Route path="analytics" element={<div>Analytics (Coming Soon)</div>} />
+              <Route path="analytics" element={<AdminAnalytics />} />
               <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
             </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
