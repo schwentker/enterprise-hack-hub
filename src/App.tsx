@@ -12,6 +12,7 @@ import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminRegistrations from "./pages/admin/Registrations";
 import AdminTeams from "./pages/admin/Teams";
+import AdminSubmissions from "./pages/admin/Submissions";
 
 const queryClient = new QueryClient();
 
@@ -33,8 +34,8 @@ const App = () => (
               <Route index element={<AdminDashboard />} />
               <Route path="registrations" element={<AdminRegistrations />} />
               <Route path="teams" element={<AdminTeams />} />
-              <Route path="submissions" element={<div>Submissions (Coming Soon)</div>} />
-              <Route path="judging" element={<div>Judging (Coming Soon)</div>} />
+              <Route path="submissions" element={<AdminSubmissions />} />
+              <Route path="judging" element={<AdminSubmissions />} />
               <Route path="analytics" element={<div>Analytics (Coming Soon)</div>} />
               <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
             </Route>
