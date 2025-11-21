@@ -5,6 +5,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { ChallengeTracksSection } from "@/components/ChallengeTracksSection";
 import { ScheduleSection } from "@/components/ScheduleSection";
 import { PrizesSection } from "@/components/PrizesSection";
+import { PastInnovationsSection } from "@/components/PastInnovationsSection";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <ChallengeTracksSection />
       <ScheduleSection />
       <PrizesSection />
+      <PastInnovationsSection />
       
       <section id="register" className="min-h-screen flex items-center justify-center">
         <div className="text-center text-muted-foreground">
