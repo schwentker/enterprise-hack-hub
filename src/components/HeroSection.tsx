@@ -43,7 +43,7 @@ export const HeroSection = () => {
           <div className="animate-scale-in space-y-6" style={{ animationDelay: "0.2s" }}>
             <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
-              <span>March 1-3, 2025 • Remote + In-Person</span>
+              <span>Feb 14-15, 2026 • Remote + In-Person</span>
             </div>
             <LiveRegistrationCounter maxSpots={150} />
             <DynamicCountdown />

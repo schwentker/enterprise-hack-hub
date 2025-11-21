@@ -6,27 +6,27 @@ import { Badge } from "@/components/ui/badge";
 const phases = {
   registration_open: {
     label: "Registration Open",
-    end: new Date("2025-02-15T23:59:59"),
+    end: new Date("2026-01-31T23:59:59"),
     nextPhase: "registration_closing",
   },
   registration_closing: {
     label: "Registration Closes In",
-    end: new Date("2025-02-28T23:59:59"),
+    end: new Date("2026-02-13T23:59:59"),
     nextPhase: "hackathon_starting",
   },
   hackathon_starting: {
     label: "Hackathon Starts In",
-    end: new Date("2025-03-01T09:00:00"),
+    end: new Date("2026-02-14T09:00:00"),
     nextPhase: "hackathon_in_progress",
   },
   hackathon_in_progress: {
     label: "Hackathon In Progress",
-    end: new Date("2025-03-03T09:00:00"),
+    end: new Date("2026-02-15T18:00:00"),
     nextPhase: "judging",
   },
   judging: {
     label: "Judging Phase",
-    end: new Date("2025-03-10T23:59:59"),
+    end: new Date("2026-02-22T23:59:59"),
     nextPhase: "complete",
   },
   complete: {
