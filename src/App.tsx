@@ -30,16 +30,20 @@ const queryClient = new QueryClient();
           <Toaster />
           <Sonner />
           
-         <BrowserRouter basename="/enterprise-hack-hub"> 
-          
+        <BrowserRouter basename="/enterprise-hack-hub">
   <Routes>
     <Route path="/" element={<Index />} />
+
     <Route path="/admin/login" element={<AdminLogin />} />
-    <Route path="/admin" element={
-      <ProtectedRoute>
-        <AdminLayout />
-      </ProtectedRoute>
-    }>
+
+    <Route
+      path="/admin"
+      element={
+        <ProtectedRoute>
+          <AdminLayout />
+        </ProtectedRoute>
+      }
+    >
       <Route index element={<AdminDashboard />} />
       <Route path="registrations" element={<AdminRegistrations />} />
       <Route path="teams" element={<AdminTeams />} />
@@ -53,6 +57,8 @@ const queryClient = new QueryClient();
   </Routes>
 </BrowserRouter>
 
+
+
       </TooltipProvider>
     </AdminAuthProvider>
   </ThemeProvider>
@@ -61,24 +67,3 @@ const queryClient = new QueryClient();
 
 export default App;
 
-/* <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin" element={
-              <ProtectedRoute>
-                <AdminLayout />
-              </ProtectedRoute>
-            }>
-              <Route index element={<AdminDashboard />} />
-              <Route path="registrations" element={<AdminRegistrations />} />
-              <Route path="teams" element={<AdminTeams />} />
-              <Route path="submissions" element={<AdminSubmissions />} />
-              <Route path="judging" element={<AdminSubmissions />} />
-              <Route path="analytics" element={<AdminAnalytics />} />
-              <Route path="settings" element={<AdminSettings />} />
-            </Route>
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          /*  <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter> */ 
