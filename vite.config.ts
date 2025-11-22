@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // This tells the app it lives in a sub-folder, not the root
-  base: "/enterprise-hack-hub/", 
+  base: "/", 
   
   server: {
     host: "::",
