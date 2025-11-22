@@ -3,8 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter basename={import.meta.env.BASE_URL}
-/* import { BrowserRouter, Routes, Route } from "react-router-dom"; */
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+
+/* import { BrowserRouter basename={import.meta.env.BASE_URL} */
+
 import { AdminAuthProvider } from "@/hooks/useAdminAuth";
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import Index from "./pages/Index";
@@ -28,7 +30,8 @@ const queryClient = new QueryClient();
           <Toaster />
           <Sonner />
           
-         <BrowserRouter basename="/enterprise-hack-hub">
+         <BrowserRouter basename="/enterprise-hack-hub"> 
+          
   <Routes>
     <Route path="/" element={<Index />} />
     <Route path="/admin/login" element={<AdminLogin />} />
