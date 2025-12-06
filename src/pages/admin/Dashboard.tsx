@@ -70,21 +70,24 @@ export default function AdminDashboard() {
   }, []);
 
   const fetchStats = async () => {
-    const { data: settings } = await supabase
-      .from('event_settings')
-      .select('next_phase_at')
-      .single();
+    const [registrationsResult, teamsResult, submissionsResult, settingsResult] = await Promise.all([
+      supabase.from('registrations').select('id', { count: 'exact', head: true }),
+      supabase.from('teams').select('id', { count: 'exact', head: true }),
+      supabase.from('submissions').select('id', { count: 'exact', head: true }),
+      supabase.from('event_settings').select('next_phase_at').single()
+    ]);
 
     let hoursUntil = null;
-    if (settings?.next_phase_at) {
-      const diff = new Date(settings.next_phase_at).getTime() - Date.now();
+    if (settingsResult.data?.next_phase_at) {
+      const diff = new Date(settingsResult.data.next_phase_at).getTime() - Date.now();
       hoursUntil = Math.max(0, Math.floor(diff / (1000 * 60 * 60)));
     }
 
+    setPrevRegistrations(stats.registrations);
     setStats({
-      registrations: 66,
-      teams: 11,
-      submissions: 0,
+      registrations: registrationsResult.count ?? 0,
+      teams: teamsResult.count ?? 0,
+      submissions: submissionsResult.count ?? 0,
       hoursUntilNext: hoursUntil,
     });
   };
